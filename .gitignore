@@ -15,8 +15,13 @@ out
 
 # gradle
 build
+*.properties
+*.gradle
+*.bat
+gradle
 .gradle
 
 # other
 eclipse
+classes
 run
