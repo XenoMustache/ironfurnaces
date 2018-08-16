@@ -7,7 +7,7 @@ import net.minecraftforge.registries.IForgeRegistry;
 public class IFBlocks {
 
     public static BlockModFurnace ironFurnaceIdle = new BlockModFurnace("iron_furnace_idle", 0, false);
-    public static BlockModFurnace ironFurnaceActive = new BlockModFurnace("iron_furnace_idle", 0, false);
+    public static BlockModFurnace ironFurnaceActive = new BlockModFurnace("iron_furnace_active", 0, false);
     public static BlockModFurnace goldFurnaceIdle = new BlockModFurnace("gold_furnace_idle", 1, false);
     public static BlockModFurnace goldFurnaceActive = new BlockModFurnace("gold_furnace_active", 1, false);
     public static BlockModFurnace diamondFurnaceIdle = new BlockModFurnace("diamond_furnace_idle", 2, false);
