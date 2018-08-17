@@ -31,8 +31,8 @@ import java.util.Random;
 public class BlockModFurnace extends BlockContainer {
 
     public static final PropertyDirection FACING = BlockHorizontal.FACING;
-    protected static int materialID;
     private static boolean keepInventory;
+    public int materialID;
     protected String name;
     protected boolean isBurning;
 
@@ -52,54 +52,6 @@ public class BlockModFurnace extends BlockContainer {
         this.setLightLevel(0f);
     }
 
-    public static void setState(boolean active, World worldIn, BlockPos pos) {
-        IBlockState iblockstate = worldIn.getBlockState(pos);
-        TileEntity tileentity = worldIn.getTileEntity(pos);
-        keepInventory = true;
-
-        if (active) {
-            if (materialID == 0) {
-                worldIn.setBlockState(pos, IFBlocks.ironFurnaceActive.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
-                worldIn.setBlockState(pos, IFBlocks.ironFurnaceActive.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
-            } else if (materialID == 1) {
-                worldIn.setBlockState(pos, IFBlocks.goldFurnaceActive.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
-                worldIn.setBlockState(pos, IFBlocks.goldFurnaceActive.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
-            } else if (materialID == 2) {
-                worldIn.setBlockState(pos, IFBlocks.diamondFurnaceActive.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
-                worldIn.setBlockState(pos, IFBlocks.diamondFurnaceActive.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
-            } else if (materialID == 3) {
-                worldIn.setBlockState(pos, IFBlocks.glassFurnaceActive.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
-                worldIn.setBlockState(pos, IFBlocks.glassFurnaceActive.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
-            } else if (materialID == 4) {
-                worldIn.setBlockState(pos, IFBlocks.obsidianFurnaceActive.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
-                worldIn.setBlockState(pos, IFBlocks.obsidianFurnaceActive.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
-            }
-        } else {
-            if (materialID == 0) {
-                worldIn.setBlockState(pos, IFBlocks.ironFurnaceIdle.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
-                worldIn.setBlockState(pos, IFBlocks.ironFurnaceIdle.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
-            } else if (materialID == 1) {
-                worldIn.setBlockState(pos, IFBlocks.goldFurnaceIdle.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
-                worldIn.setBlockState(pos, IFBlocks.goldFurnaceIdle.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
-            } else if (materialID == 2) {
-                worldIn.setBlockState(pos, IFBlocks.diamondFurnaceIdle.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
-                worldIn.setBlockState(pos, IFBlocks.diamondFurnaceIdle.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
-            } else if (materialID == 3) {
-                worldIn.setBlockState(pos, IFBlocks.glassFurnaceIdle.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
-                worldIn.setBlockState(pos, IFBlocks.glassFurnaceIdle.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
-            } else if (materialID == 4) {
-                worldIn.setBlockState(pos, IFBlocks.obsidianFurnaceIdle.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
-                worldIn.setBlockState(pos, IFBlocks.obsidianFurnaceIdle.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
-            }
-        }
-
-        keepInventory = false;
-
-        if (tileentity != null) {
-            tileentity.validate();
-            worldIn.setTileEntity(pos, tileentity);
-        }
-    }
 
     public void registerItemModel(Item itemBlock) {
         IronFurnaces.proxy.registerItemRenderer(itemBlock, 0, name);
@@ -198,7 +150,6 @@ public class BlockModFurnace extends BlockContainer {
         }
     }
 
-    //TODO Block Activation
     public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         if (worldIn.isRemote) {
             return true;
@@ -233,6 +184,7 @@ public class BlockModFurnace extends BlockContainer {
             }
         }
     }
+
 
     public void breakBlock(World worldIn, BlockPos pos, IBlockState state) {
         if (!keepInventory) {
