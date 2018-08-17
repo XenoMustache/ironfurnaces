@@ -2,8 +2,11 @@ package com.xenomustache.ironfurnaces;
 
 import com.xenomustache.ironfurnaces.blocks.IFBlocks;
 import com.xenomustache.ironfurnaces.proxy.CommonProxy;
+import com.xenomustache.ironfurnaces.tileentity.TileEntityModFurnace;
 import net.minecraft.block.Block;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -12,6 +15,7 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 
 @Mod(modid = IronFurnaces.MODID, name = IronFurnaces.NAME, version = IronFurnaces.VERSION)
 public class IronFurnaces {
@@ -25,9 +29,11 @@ public class IronFurnaces {
     @Mod.Instance(MODID)
     public static IronFurnaces instance;
 
+    public static final ModTab creativeTab = new ModTab();
+
     @Mod.EventHandler
     public void preinit(FMLPreInitializationEvent event) {
-
+        GameRegistry.registerTileEntity(TileEntityModFurnace.class, "iron_furnace");
     }
 
     @Mod.EventHandler
@@ -56,6 +62,17 @@ public class IronFurnaces {
         @SubscribeEvent
         public static void registerItems(ModelRegistryEvent event) {
             IFBlocks.registerModels();
+        }
+    }
+
+    public static class ModTab extends CreativeTabs{
+        public ModTab() {
+            super(IronFurnaces.MODID);
+        }
+
+        @Override
+        public ItemStack getTabIconItem() {
+            return new ItemStack(Item.getItemFromBlock(IFBlocks.ironFurnaceIdle));
         }
     }
 }

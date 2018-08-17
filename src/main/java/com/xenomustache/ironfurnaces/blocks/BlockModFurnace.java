@@ -47,7 +47,9 @@ public class BlockModFurnace extends BlockContainer {
         this.setRegistryName(name);
         this.setHardness(3f);
         this.setResistance(5f);
-        this.setHarvestLevel("pickaxe", 0);
+        this.setHarvestLevel("pickaxe", 1);
+        this.setCreativeTab(IronFurnaces.creativeTab);
+        this.setLightLevel(0f);
     }
 
     public static void setState(boolean active, World worldIn, BlockPos pos) {
@@ -111,10 +113,20 @@ public class BlockModFurnace extends BlockContainer {
     public BlockModFurnace setCreativeTab(CreativeTabs tab) {
         if (isBurning == false) {
             super.setCreativeTab(tab);
-            return this;
-        } else {
-            return null;
+        } else if (isBurning == true) {
+            super.setCreativeTab(null);
         }
+        return this;
+    }
+
+    @Override
+    public BlockModFurnace setLightLevel(float value) {
+        if (isBurning == false) {
+            super.setLightLevel(0f);
+        } else if (isBurning == true) {
+            super.setLightLevel(13f);
+        }
+        return this;
     }
 
     public Item getItemDropped(IBlockState state, Random rand, int fortune) {
