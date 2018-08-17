@@ -33,7 +33,7 @@ public class IronFurnaces {
 
     @Mod.EventHandler
     public void preinit(FMLPreInitializationEvent event) {
-        GameRegistry.registerTileEntity(TileEntityModFurnace.class, "iron_furnace");
+        GameRegistry.registerTileEntity(TileEntityModFurnace.class, "ironfurnaces:iron_furnace");
     }
 
     @Mod.EventHandler

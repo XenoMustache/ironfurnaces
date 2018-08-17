@@ -31,7 +31,6 @@ import java.util.Random;
 public class BlockModFurnace extends BlockContainer {
 
     public static final PropertyDirection FACING = BlockHorizontal.FACING;
-    private static boolean keepInventory;
     public int materialID;
     protected String name;
     protected boolean isBurning;
@@ -49,9 +48,7 @@ public class BlockModFurnace extends BlockContainer {
         this.setResistance(5f);
         this.setHarvestLevel("pickaxe", 1);
         this.setCreativeTab(IronFurnaces.creativeTab);
-        this.setLightLevel(0f);
     }
-
 
     public void registerItemModel(Item itemBlock) {
         IronFurnaces.proxy.registerItemRenderer(itemBlock, 0, name);
@@ -59,6 +56,16 @@ public class BlockModFurnace extends BlockContainer {
 
     public Item createItemBlock() {
         return new ItemBlock(this).setRegistryName(getRegistryName());
+    }
+
+    @Override
+    public boolean isOpaqueCube(IBlockState state)
+    {
+        if (materialID != 3) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     @Override
@@ -187,7 +194,7 @@ public class BlockModFurnace extends BlockContainer {
 
 
     public void breakBlock(World worldIn, BlockPos pos, IBlockState state) {
-        if (!keepInventory) {
+        if (!TileEntityModFurnace.keepInventory) {
             TileEntity tileentity = worldIn.getTileEntity(pos);
 
             if (tileentity instanceof TileEntityModFurnace) {

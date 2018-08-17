@@ -31,7 +31,7 @@ public class TileEntityModFurnace extends TileEntityLockable implements ITickabl
     private static final int[] SLOTS_TOP = new int[]{0};
     private static final int[] SLOTS_BOTTOM = new int[]{2, 1};
     private static final int[] SLOTS_SIDES = new int[]{1};
-    private static boolean keepInventory;
+    public static boolean keepInventory;
     net.minecraftforge.items.IItemHandler handlerTop = new net.minecraftforge.items.wrapper.SidedInvWrapper(this, net.minecraft.util.EnumFacing.UP);
     net.minecraftforge.items.IItemHandler handlerBottom = new net.minecraftforge.items.wrapper.SidedInvWrapper(this, net.minecraft.util.EnumFacing.DOWN);
     net.minecraftforge.items.IItemHandler handlerSide = new net.minecraftforge.items.wrapper.SidedInvWrapper(this, net.minecraft.util.EnumFacing.WEST);
@@ -257,9 +257,9 @@ public class TileEntityModFurnace extends TileEntityLockable implements ITickabl
             }
 
             if (flag != this.isBurning()) {
-                flag1 = true;
                 IBlockState iblockstate = world.getBlockState(pos);
                 TileEntity tileentity = world.getTileEntity(pos);
+
                 keepInventory = true;
 
                 if (flag1) {
@@ -285,7 +285,6 @@ public class TileEntityModFurnace extends TileEntityLockable implements ITickabl
                             world.setBlockState(pos, IFBlocks.obsidianFurnaceActive.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
                             break;
                     }
-
                 } else {
                     switch (materialID) {
                         case 0:
@@ -325,7 +324,17 @@ public class TileEntityModFurnace extends TileEntityLockable implements ITickabl
     }
 
     public int getCookTime(ItemStack stack) {
-        return 200;
+        if (materialID == 0) {
+            return 100;
+        } else if (materialID == 1) {
+            return 50;
+        } else if (materialID == 2 || materialID == 3){
+            return 25;
+        } else if (materialID == 4){
+            return 10;
+        } else {
+            return 200;
+        }
     }
 
     private boolean canSmelt() {
