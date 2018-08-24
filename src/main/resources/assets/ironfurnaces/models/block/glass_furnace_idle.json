@@ -1,5 +1,6 @@
 {
     "parent": "block/orientable",
+	"ambientocclusion": true,
     "textures": {
         "top": "ironfurnaces:blocks/glass_furnace_top",
         "front": "ironfurnaces:blocks/glass_furnace_front_off",

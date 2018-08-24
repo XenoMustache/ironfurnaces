@@ -6,29 +6,29 @@ import net.minecraftforge.registries.IForgeRegistry;
 
 public class IFBlocks {
 
-    public static BlockModFurnace ironFurnaceIdle = new BlockModFurnace("iron_furnace_idle", 0, false);
-    public static BlockModFurnace ironFurnaceActive = new BlockModFurnace("iron_furnace_active", 0, true);
-    public static BlockModFurnace goldFurnaceIdle = new BlockModFurnace("gold_furnace_idle", 1, false);
-    public static BlockModFurnace goldFurnaceActive = new BlockModFurnace("gold_furnace_active", 1, true);
-    public static BlockModFurnace diamondFurnaceIdle = new BlockModFurnace("diamond_furnace_idle", 2, false);
-    public static BlockModFurnace diamondFurnaceActive = new BlockModFurnace("diamond_furnace_active", 2, true);
-    public static BlockModFurnace glassFurnaceIdle = new BlockModFurnace("glass_furnace_idle", 3, false);
-    public static BlockModFurnace glassFurnaceActive = new BlockModFurnace("glass_furnace_active", 3, true);
-    public static BlockModFurnace obsidianFurnaceIdle = new BlockModFurnace("obsidian_furnace_idle", 4, false);
-    public static BlockModFurnace obsidianFurnaceActive = new BlockModFurnace("obsidian_furnace_active", 4, true);
+    public static BlockIronFurnace ironFurnaceIdle = new BlockIronFurnace("iron_furnace_idle", false);
+    public static BlockIronFurnace ironFurnaceActive = new BlockIronFurnace("iron_furnace_active", true);
+    public static BlockGoldFurnace goldFurnaceIdle = new BlockGoldFurnace("gold_furnace_idle", false);
+    public static BlockGoldFurnace goldFurnaceActive = new BlockGoldFurnace("gold_furnace_active", true);
+    public static BlockDiamondFurnace diamondFurnaceIdle = new BlockDiamondFurnace("diamond_furnace_idle", false);
+    public static BlockDiamondFurnace diamondFurnaceActive = new BlockDiamondFurnace("diamond_furnace_active", true);
+    public static BlockGlassFurnace glassFurnaceIdle = new BlockGlassFurnace("glass_furnace_idle", false);
+    public static BlockGlassFurnace glassFurnaceActive = new BlockGlassFurnace("glass_furnace_active", true);
+    public static BlockObsidianFurnace obsidianFurnaceIdle = new BlockObsidianFurnace("obsidian_furnace_idle", false);
+    public static BlockObsidianFurnace obsidianFurnaceActive = new BlockObsidianFurnace("obsidian_furnace_active", true);
 
     public static void register(IForgeRegistry<Block> registry) {
         registry.registerAll(
                 ironFurnaceIdle,
-                ironFurnaceActive,
+                ironFurnaceActive.setLightLevel(0.875F),
                 goldFurnaceIdle,
-                goldFurnaceActive,
+                goldFurnaceActive.setLightLevel(0.875F),
                 diamondFurnaceIdle,
-                diamondFurnaceActive,
+                diamondFurnaceActive.setLightLevel(0.875F),
                 glassFurnaceIdle,
-                glassFurnaceActive,
+                glassFurnaceActive.setLightLevel(0.875F),
                 obsidianFurnaceIdle,
-                obsidianFurnaceActive);
+                obsidianFurnaceActive.setLightLevel(0.875F));
     }
 
     public static void registerItemBlocks(IForgeRegistry<Item> registry) {

@@ -20,7 +20,6 @@ import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.stats.StatList;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.tileentity.TileEntityFurnace;
 import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -29,16 +28,16 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.Random;
 
-import static com.xenomustache.ironfurnaces.tileentity.TileEntityModFurnace.keepInventory;
+import static com.xenomustache.ironfurnaces.tileentity.TileEntityGoldFurnace.keepInventory;
 
-public class BlockModFurnace extends BlockContainer {
+public class BlockGoldFurnace extends BlockContainer {
 
     public static final PropertyDirection FACING = BlockHorizontal.FACING;
-    private int materialID;
+    private int materialID = 1;
     protected String name;
     protected boolean isBurning;
 
-    public BlockModFurnace(String name, boolean isBurning) {
+    public BlockGoldFurnace(String name, boolean isBurning) {
         super(Material.ROCK);
 
         this.name = name;
@@ -80,21 +79,11 @@ public class BlockModFurnace extends BlockContainer {
     }
 
     @Override
-    public BlockModFurnace setCreativeTab(CreativeTabs tab) {
+    public BlockGoldFurnace setCreativeTab(CreativeTabs tab) {
         if (isBurning == false) {
             super.setCreativeTab(tab);
         } else if (isBurning == true) {
             super.setCreativeTab(null);
-        }
-        return this;
-    }
-
-    @Override
-    public BlockModFurnace setLightLevel(float value) {
-        if (isBurning == false) {
-            super.setLightLevel(0f);
-        } else if (isBurning == true) {
-            super.setLightLevel(13f);
         }
         return this;
     }
@@ -234,9 +223,9 @@ public class BlockModFurnace extends BlockContainer {
         {
             TileEntity tileentity = worldIn.getTileEntity(pos);
 
-            if (tileentity instanceof TileEntityModFurnace)
+            if (tileentity instanceof TileEntityGoldFurnace)
             {
-                InventoryHelper.dropInventoryItems(worldIn, pos, (TileEntityModFurnace)tileentity);
+                InventoryHelper.dropInventoryItems(worldIn, pos, (TileEntityGoldFurnace)tileentity);
                 worldIn.updateComparatorOutputLevel(pos, this);
             }
         }
