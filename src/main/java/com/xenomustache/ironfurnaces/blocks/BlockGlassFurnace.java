@@ -89,8 +89,8 @@ public class BlockGlassFurnace extends BlockContainer {
     }
 
     public Item getItemDropped(IBlockState state, Random rand, int fortune) {
-        if (materialID == 0) {
-            return Item.getItemFromBlock(IFBlocks.ironFurnaceIdle);
+        if (materialID == 3) {
+            return Item.getItemFromBlock(IFBlocks.glassFurnaceIdle);
         } else {
             return null;
         }

@@ -89,8 +89,8 @@ public class BlockObsidianFurnace extends BlockContainer {
     }
 
     public Item getItemDropped(IBlockState state, Random rand, int fortune) {
-        if (materialID == 0) {
-            return Item.getItemFromBlock(IFBlocks.ironFurnaceIdle);
+        if (materialID == 4) {
+            return Item.getItemFromBlock(IFBlocks.obsidianFurnaceIdle);
         } else {
             return null;
         }
