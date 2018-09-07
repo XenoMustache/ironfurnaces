@@ -21,7 +21,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 public class IronFurnaces {
     public static final String MODID = "ironfurnaces";
     public static final String NAME = "Iron Furnaces";
-    public static final String VERSION = "1.3";
+    public static final String VERSION = "1.3.1";
     public static final ModTab creativeTab = new ModTab();
     @SidedProxy(serverSide = "com.xenomustache.ironfurnaces.proxy.CommonProxy", clientSide = "com.xenomustache.ironfurnaces.proxy.ClientProxy")
     public static CommonProxy proxy;
