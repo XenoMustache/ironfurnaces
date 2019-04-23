@@ -38,16 +38,6 @@ public class IronFurnaces {
         GameRegistry.registerTileEntity(TileEntityObsidianFurnace.class, "ironfurnaces:obsidian_furnace");
     }
 
-    @Mod.EventHandler
-    public void init(FMLInitializationEvent event) {
-
-    }
-
-    @Mod.EventHandler
-    public void postinit(FMLPostInitializationEvent event) {
-
-    }
-
     @Mod.EventBusSubscriber
     public static class RegistrationHandler {
 

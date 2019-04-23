@@ -27,6 +27,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import static com.xenomustache.ironfurnaces.blocks.BlockModFurnace.FACING;
 
+import com.xenomustache.ironfurnaces.ModConfig;
+
 public class TileEntityIronFurnace extends TileEntityLockable implements ITickable, ISidedInventory {
     private static final int[] SLOTS_TOP = new int[]{0};
     private static final int[] SLOTS_BOTTOM = new int[]{2, 1};
@@ -321,17 +323,7 @@ public class TileEntityIronFurnace extends TileEntityLockable implements ITickab
     }
 
     public int getCookTime(ItemStack stack) {
-        if (materialID == 0) {
-            return 100;
-        } else if (materialID == 1) {
-            return 50;
-        } else if (materialID == 2 || materialID == 3) {
-            return 25;
-        } else if (materialID == 4) {
-            return 10;
-        } else {
-            return 200;
-        }
+        return ModConfig.IronFurnaceCookTime;
     }
 
     private boolean canSmelt() {
