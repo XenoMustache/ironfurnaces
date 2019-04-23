@@ -11,8 +11,6 @@ import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
-import net.minecraftforge.fml.common.event.FMLInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
@@ -21,7 +19,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 public class IronFurnaces {
     public static final String MODID = "ironfurnaces";
     public static final String NAME = "Iron Furnaces";
-    public static final String VERSION = "1.3.1";
+    public static final String VERSION = "1.3.2";
     public static final ModTab creativeTab = new ModTab();
     @SidedProxy(serverSide = "com.xenomustache.ironfurnaces.proxy.CommonProxy", clientSide = "com.xenomustache.ironfurnaces.proxy.ClientProxy")
     public static CommonProxy proxy;
@@ -29,6 +27,7 @@ public class IronFurnaces {
     public static IronFurnaces instance;
 
     @Mod.EventHandler
+    @SuppressWarnings("deprecation")
     public void preinit(FMLPreInitializationEvent event) {
         GameRegistry.registerTileEntity(TileEntityModFurnace.class, "ironfurnaces:error_furnace");
         GameRegistry.registerTileEntity(TileEntityIronFurnace.class, "ironfurnaces:iron_furnace");

@@ -19,6 +19,7 @@ build
 *.gradle
 *.bat
 gradle
+gradlew
 .gradle
 
 # other
