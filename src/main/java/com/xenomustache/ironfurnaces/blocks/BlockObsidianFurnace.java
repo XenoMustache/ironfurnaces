@@ -33,7 +33,6 @@ import static com.xenomustache.ironfurnaces.tileentity.TileEntityObsidianFurnace
 public class BlockObsidianFurnace extends BlockContainer {
 
     public static final PropertyDirection FACING = BlockHorizontal.FACING;
-    private int materialID = 4;
     protected String name;
     protected boolean isBurning;
 
@@ -62,20 +61,12 @@ public class BlockObsidianFurnace extends BlockContainer {
     @SideOnly(Side.CLIENT)
     @Override
     public BlockRenderLayer getBlockLayer() {
-        if (materialID == 3) {
-            return BlockRenderLayer.TRANSLUCENT;
-        } else {
-            return BlockRenderLayer.SOLID;
-        }
+        return BlockRenderLayer.SOLID;
     }
 
     @Override
     public boolean isOpaqueCube(IBlockState state) {
-        if (materialID != 3) {
-            return true;
-        } else {
             return false;
-        }
     }
 
     @Override
@@ -89,11 +80,7 @@ public class BlockObsidianFurnace extends BlockContainer {
     }
 
     public Item getItemDropped(IBlockState state, Random rand, int fortune) {
-        if (materialID == 4) {
-            return Item.getItemFromBlock(IFBlocks.obsidianFurnaceIdle);
-        } else {
-            return null;
-        }
+        return Item.getItemFromBlock(IFBlocks.obsidianFurnaceIdle);
     }
 
     public void onBlockAdded(World worldIn, BlockPos pos, IBlockState state) {
@@ -130,7 +117,6 @@ public class BlockObsidianFurnace extends BlockContainer {
             double d0 = (double) pos.getX() + 0.5D;
             double d1 = (double) pos.getY() + rand.nextDouble() * 6.0D / 16.0D;
             double d2 = (double) pos.getZ() + 0.5D;
-            //double d3 = 0.52D;
             double d4 = rand.nextDouble() * 0.6D - 0.3D;
 
             if (rand.nextDouble() < 0.1D) {
@@ -186,19 +172,7 @@ public class BlockObsidianFurnace extends BlockContainer {
 
     @Override
     public TileEntity createNewTileEntity(World worldIn, int meta) {
-        if (materialID == 0) {
-            return new TileEntityIronFurnace();
-        } else if (materialID == 1) {
-            return new TileEntityGoldFurnace();
-        } else if (materialID == 2) {
-            return new TileEntityDiamondFurnace();
-        } else if (materialID == 3) {
-            return new TileEntityGlassFurnace();
-        } else if (materialID == 4) {
-            return new TileEntityObsidianFurnace();
-        } else {
-            return null;
-        }
+        return new TileEntityObsidianFurnace();
     }
 
     public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
@@ -211,8 +185,8 @@ public class BlockObsidianFurnace extends BlockContainer {
         if (stack.hasDisplayName()) {
             TileEntity tileentity = worldIn.getTileEntity(pos);
 
-            if (tileentity instanceof TileEntityModFurnace) {
-                ((TileEntityModFurnace) tileentity).setCustomInventoryName(stack.getDisplayName());
+            if (tileentity instanceof TileEntityObsidianFurnace) {
+                ((TileEntityObsidianFurnace) tileentity).setCustomInventoryName(stack.getDisplayName());
             }
         }
     }
@@ -242,19 +216,7 @@ public class BlockObsidianFurnace extends BlockContainer {
     }
 
     public ItemStack getItem(World worldIn, BlockPos pos, IBlockState state) {
-        if (materialID == 0) {
-            return new ItemStack(IFBlocks.ironFurnaceIdle);
-        } else if (materialID == 1) {
-            return new ItemStack(IFBlocks.goldFurnaceIdle);
-        } else if (materialID == 2) {
-            return new ItemStack(IFBlocks.diamondFurnaceIdle);
-        } else if (materialID == 3) {
-            return new ItemStack(IFBlocks.glassFurnaceIdle);
-        } else if (materialID == 4) {
-            return new ItemStack(IFBlocks.obsidianFurnaceActive);
-        } else {
-            return null;
-        }
+        return new ItemStack(IFBlocks.obsidianFurnaceActive);
     }
 
     public EnumBlockRenderType getRenderType(IBlockState state) {

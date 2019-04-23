@@ -29,7 +29,6 @@ public class IronFurnaces {
     @Mod.EventHandler
     @SuppressWarnings("deprecation")
     public void preinit(FMLPreInitializationEvent event) {
-        GameRegistry.registerTileEntity(TileEntityModFurnace.class, "ironfurnaces:error_furnace");
         GameRegistry.registerTileEntity(TileEntityIronFurnace.class, "ironfurnaces:iron_furnace");
         GameRegistry.registerTileEntity(TileEntityGoldFurnace.class, "ironfurnaces:gold_furnace");
         GameRegistry.registerTileEntity(TileEntityDiamondFurnace.class, "ironfurnaces:diamond_furnace");

@@ -1,6 +1,11 @@
 package com.xenomustache.ironfurnaces.container;
 
-import com.xenomustache.ironfurnaces.tileentity.TileEntityModFurnace;
+import com.xenomustache.ironfurnaces.tileentity.TileEntityDiamondFurnace;
+import com.xenomustache.ironfurnaces.tileentity.TileEntityGlassFurnace;
+import com.xenomustache.ironfurnaces.tileentity.TileEntityGoldFurnace;
+import com.xenomustache.ironfurnaces.tileentity.TileEntityIronFurnace;
+import com.xenomustache.ironfurnaces.tileentity.TileEntityObsidianFurnace;
+
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.*;
@@ -98,7 +103,8 @@ public class ContainerModFurnace extends Container {
                     if (!this.mergeItemStack(itemstack1, 0, 1, false)) {
                         return ItemStack.EMPTY;
                     }
-                } else if (TileEntityModFurnace.isItemFuel(itemstack1)) {
+                } else if (TileEntityDiamondFurnace.isItemFuel(itemstack1) || TileEntityGoldFurnace.isItemFuel(itemstack1) || TileEntityGlassFurnace.isItemFuel(itemstack1)
+                    || TileEntityIronFurnace.isItemFuel(itemstack1) || TileEntityObsidianFurnace.isItemFuel(itemstack1)) {
                     if (!this.mergeItemStack(itemstack1, 1, 2, false)) {
                         return ItemStack.EMPTY;
                     }

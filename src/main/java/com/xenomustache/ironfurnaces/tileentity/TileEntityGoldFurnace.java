@@ -25,7 +25,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import static com.xenomustache.ironfurnaces.blocks.BlockModFurnace.FACING;
+import static com.xenomustache.ironfurnaces.blocks.BlockGoldFurnace.FACING;
 
 import com.xenomustache.ironfurnaces.ModConfig;
 
@@ -34,11 +34,12 @@ public class TileEntityGoldFurnace extends TileEntityLockable implements ITickab
     private static final int[] SLOTS_BOTTOM = new int[]{2, 1};
     private static final int[] SLOTS_SIDES = new int[]{1};
     public static boolean keepInventory;
-    private int materialID = 1;
     public Block furnace;
+
     net.minecraftforge.items.IItemHandler handlerTop = new net.minecraftforge.items.wrapper.SidedInvWrapper(this, EnumFacing.UP);
     net.minecraftforge.items.IItemHandler handlerBottom = new net.minecraftforge.items.wrapper.SidedInvWrapper(this, EnumFacing.DOWN);
     net.minecraftforge.items.IItemHandler handlerSide = new net.minecraftforge.items.wrapper.SidedInvWrapper(this, EnumFacing.WEST);
+
     private NonNullList<ItemStack> furnaceItemStacks = NonNullList.<ItemStack>withSize(3, ItemStack.EMPTY);
     private int furnaceBurnTime;
     private int currentItemBurnTime;
@@ -160,7 +161,7 @@ public class TileEntityGoldFurnace extends TileEntityLockable implements ITickab
     }
 
     public String getName() {
-        return this.hasCustomName() ? this.furnaceCustomName : "container.furnace_" + materialID;
+        return this.hasCustomName() ? this.furnaceCustomName : "container.furnace_" + 1;
     }
 
     public boolean hasCustomName() {
@@ -262,51 +263,11 @@ public class TileEntityGoldFurnace extends TileEntityLockable implements ITickab
                 keepInventory = true;
 
                 if (flag1) {
-                    switch (materialID) {
-                        case 0:
-                            world.setBlockState(pos, IFBlocks.ironFurnaceActive.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
-                            world.setBlockState(pos, IFBlocks.ironFurnaceActive.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
-                            break;
-                        case 1:
-                            world.setBlockState(pos, IFBlocks.goldFurnaceActive.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
-                            world.setBlockState(pos, IFBlocks.goldFurnaceActive.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
-                            break;
-                        case 2:
-                            world.setBlockState(pos, IFBlocks.diamondFurnaceActive.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
-                            world.setBlockState(pos, IFBlocks.diamondFurnaceActive.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
-                            break;
-                        case 3:
-                            world.setBlockState(pos, IFBlocks.glassFurnaceActive.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
-                            world.setBlockState(pos, IFBlocks.glassFurnaceActive.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
-                            break;
-                        case 4:
-                            world.setBlockState(pos, IFBlocks.obsidianFurnaceActive.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
-                            world.setBlockState(pos, IFBlocks.obsidianFurnaceActive.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
-                            break;
-                    }
+                    world.setBlockState(pos, IFBlocks.goldFurnaceActive.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
+                    world.setBlockState(pos, IFBlocks.goldFurnaceActive.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
                 } else {
-                    switch (materialID) {
-                        case 0:
-                            world.setBlockState(pos, IFBlocks.ironFurnaceIdle.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
-                            world.setBlockState(pos, IFBlocks.ironFurnaceIdle.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
-                            break;
-                        case 1:
-                            world.setBlockState(pos, IFBlocks.goldFurnaceIdle.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
-                            world.setBlockState(pos, IFBlocks.goldFurnaceIdle.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
-                            break;
-                        case 2:
-                            world.setBlockState(pos, IFBlocks.diamondFurnaceIdle.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
-                            world.setBlockState(pos, IFBlocks.diamondFurnaceIdle.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
-                            break;
-                        case 3:
-                            world.setBlockState(pos, IFBlocks.glassFurnaceIdle.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
-                            world.setBlockState(pos, IFBlocks.glassFurnaceIdle.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
-                            break;
-                        case 4:
-                            world.setBlockState(pos, IFBlocks.obsidianFurnaceIdle.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
-                            world.setBlockState(pos, IFBlocks.obsidianFurnaceIdle.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
-                            break;
-                    }
+                    world.setBlockState(pos, IFBlocks.goldFurnaceIdle.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
+                    world.setBlockState(pos, IFBlocks.goldFurnaceIdle.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
                 }
 
                 keepInventory = false;
