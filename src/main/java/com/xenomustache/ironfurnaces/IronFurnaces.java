@@ -34,6 +34,8 @@ public class IronFurnaces {
         GameRegistry.registerTileEntity(TileEntityDiamondFurnace.class, "ironfurnaces:diamond_furnace");
         GameRegistry.registerTileEntity(TileEntityGlassFurnace.class, "ironfurnaces:glass_furnace");
         GameRegistry.registerTileEntity(TileEntityObsidianFurnace.class, "ironfurnaces:obsidian_furnace");
+
+        GameRegistry.registerTileEntity(TileEntityShulkerFurnace.class, "ironfurnaces:shulker_furnace");
     }
 
     @Mod.EventBusSubscriber

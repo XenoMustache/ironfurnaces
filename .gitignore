@@ -25,4 +25,5 @@ gradlew
 # other
 eclipse
 classes
+.vscode
 run
