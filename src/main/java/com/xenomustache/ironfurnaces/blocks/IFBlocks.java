@@ -1,6 +1,7 @@
 package com.xenomustache.ironfurnaces.blocks;
 
 import net.minecraft.block.Block;
+import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.Item;
 import net.minecraftforge.registries.IForgeRegistry;
 
@@ -17,8 +18,8 @@ public class IFBlocks {
     public static BlockObsidianFurnace obsidianFurnaceIdle = new BlockObsidianFurnace("obsidian_furnace_idle", false);
     public static BlockObsidianFurnace obsidianFurnaceActive = new BlockObsidianFurnace("obsidian_furnace_active", true);
     
-    public static BlockShulkerFurnace shulkerFurnaceIdle = new BlockShulkerFurnace("shulker_furnace_idle", false, null);
-    public static BlockShulkerFurnace shulkerFurnaceActive = new BlockShulkerFurnace("shulker_furnace_active", true, null);
+    public static BlockShulkerFurnace shulkerFurnaceIdle = new BlockShulkerFurnace("shulker_furnace_idle", false, EnumDyeColor.PURPLE);
+    public static BlockShulkerFurnace shulkerFurnaceActive = new BlockShulkerFurnace("shulker_furnace_active", true, EnumDyeColor.PURPLE);
 
     public static void register(IForgeRegistry<Block> registry) {
         registry.registerAll(

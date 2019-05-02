@@ -56,17 +56,17 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class BlockShulkerFurnace extends BlockContainer {
     public static final PropertyEnum<EnumFacing> FACING = PropertyDirection.create("facing");
     protected String name;
-    protected boolean isBurning;
-    private final EnumDyeColor color;
+    protected static boolean isBurning;
+    protected final EnumDyeColor color;
 
-    public BlockShulkerFurnace(String name, boolean isBurning,EnumDyeColor colorIn)
+    public BlockShulkerFurnace(String name, boolean isBurning, EnumDyeColor colorIn)
     {
         super(Material.ROCK, MapColor.AIR);
         this.name = name;
         this.isBurning = isBurning;
         this.color = colorIn;
 
-        this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.UP));
+        //this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.UP));
         
         this.setUnlocalizedName(name);
         this.setRegistryName(name);
@@ -427,39 +427,44 @@ public class BlockShulkerFurnace extends BlockContainer {
     {
         switch (colorIn)
         {
-            case WHITE:
-                return Blocks.WHITE_SHULKER_BOX;
-            case ORANGE:
-                return Blocks.ORANGE_SHULKER_BOX;
-            case MAGENTA:
-                return Blocks.MAGENTA_SHULKER_BOX;
-            case LIGHT_BLUE:
-                return Blocks.LIGHT_BLUE_SHULKER_BOX;
-            case YELLOW:
-                return Blocks.YELLOW_SHULKER_BOX;
-            case LIME:
-                return Blocks.LIME_SHULKER_BOX;
-            case PINK:
-                return Blocks.PINK_SHULKER_BOX;
-            case GRAY:
-                return Blocks.GRAY_SHULKER_BOX;
-            case SILVER:
-                return Blocks.SILVER_SHULKER_BOX;
-            case CYAN:
-                return Blocks.CYAN_SHULKER_BOX;
-            case PURPLE:
+            //case WHITE:
+            //    return Blocks.WHITE_SHULKER_BOX;
+            //case ORANGE:
+            //    return Blocks.ORANGE_SHULKER_BOX;
+            //case MAGENTA:
+            //    return Blocks.MAGENTA_SHULKER_BOX;
+            //case LIGHT_BLUE:
+            //    return Blocks.LIGHT_BLUE_SHULKER_BOX;
+            //case YELLOW:
+            //    return Blocks.YELLOW_SHULKER_BOX;
+            //case LIME:
+            //    return Blocks.LIME_SHULKER_BOX;
+            //case PINK:
+            //    return Blocks.PINK_SHULKER_BOX;
+            //case GRAY:
+            //    return Blocks.GRAY_SHULKER_BOX;
+            //case SILVER:
+            //    return Blocks.SILVER_SHULKER_BOX;
+            //case CYAN:
+            //    return Blocks.CYAN_SHULKER_BOX;
+            //case PURPLE:
+            //default:
+            //    return Blocks.PURPLE_SHULKER_BOX;
+            //case BLUE:
+            //    return Blocks.BLUE_SHULKER_BOX;
+            //case BROWN:
+            //    return Blocks.BROWN_SHULKER_BOX;
+            //case GREEN:
+            //    return Blocks.GREEN_SHULKER_BOX;
+            //case RED:
+            //    return Blocks.RED_SHULKER_BOX;
+            //case BLACK:
+            //    return Blocks.BLACK_SHULKER_BOX;
             default:
-                return Blocks.PURPLE_SHULKER_BOX;
-            case BLUE:
-                return Blocks.BLUE_SHULKER_BOX;
-            case BROWN:
-                return Blocks.BROWN_SHULKER_BOX;
-            case GREEN:
-                return Blocks.GREEN_SHULKER_BOX;
-            case RED:
-                return Blocks.RED_SHULKER_BOX;
-            case BLACK:
-                return Blocks.BLACK_SHULKER_BOX;
+                if(isBurning)
+                    return IFBlocks.shulkerFurnaceActive;
+                else
+                    return IFBlocks.shulkerFurnaceIdle;
         }
     }
 
