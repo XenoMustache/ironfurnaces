@@ -59,14 +59,13 @@ public class BlockGlassFurnace extends BlockContainer {
     }
 
     @SideOnly(Side.CLIENT)
-    @Override
     public BlockRenderLayer getBlockLayer() {
-        return BlockRenderLayer.TRANSLUCENT;
+        return BlockRenderLayer.CUTOUT;
     }
 
     @Override
     public boolean isOpaqueCube(IBlockState state) {
-        return true;
+        return false;
     }
 
     @Override
