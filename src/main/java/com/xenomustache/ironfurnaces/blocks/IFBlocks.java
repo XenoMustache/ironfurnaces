@@ -48,9 +48,9 @@ public class IFBlocks {
                 glassFurnaceIdle.createItemBlock(),
                 glassFurnaceActive.createItemBlock(),
                 obsidianFurnaceIdle.createItemBlock(),
-                obsidianFurnaceActive.createItemBlock(),
-                shulkerFurnaceIdle.createItemBlock(),
-                shulkerFurnaceActive.createItemBlock()
+                obsidianFurnaceActive.createItemBlock()
+                //shulkerFurnaceIdle.createItemBlock(),
+                //shulkerFurnaceActive.createItemBlock()
         );
     }
 
@@ -67,6 +67,5 @@ public class IFBlocks {
         obsidianFurnaceActive.registerItemModel(Item.getItemFromBlock(obsidianFurnaceActive));
         shulkerFurnaceIdle.registerItemModel(Item.getItemFromBlock(shulkerFurnaceIdle));
         shulkerFurnaceActive.registerItemModel(Item.getItemFromBlock(shulkerFurnaceActive));
-
     }
 }
