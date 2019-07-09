@@ -18,8 +18,8 @@ public class IFBlocks {
     public static BlockObsidianFurnace obsidianFurnaceIdle = new BlockObsidianFurnace("obsidian_furnace_idle", false);
     public static BlockObsidianFurnace obsidianFurnaceActive = new BlockObsidianFurnace("obsidian_furnace_active", true);
     
-    public static BlockShulkerFurnace shulkerFurnaceIdle = new BlockShulkerFurnace("shulker_furnace_idle", false, EnumDyeColor.PURPLE);
-    public static BlockShulkerFurnace shulkerFurnaceActive = new BlockShulkerFurnace("shulker_furnace_active", true, EnumDyeColor.PURPLE);
+    //public static BlockShulkerFurnace shulkerFurnaceIdle = new BlockShulkerFurnace("shulker_furnace_idle", false, EnumDyeColor.PURPLE);
+    // public static BlockShulkerFurnace shulkerFurnaceActive = new BlockShulkerFurnace("shulker_furnace_active", true, EnumDyeColor.PURPLE);
 
     public static void register(IForgeRegistry<Block> registry) {
         registry.registerAll(
@@ -32,9 +32,9 @@ public class IFBlocks {
                 glassFurnaceIdle,
                 glassFurnaceActive.setLightLevel(0.875F),
                 obsidianFurnaceIdle,
-                obsidianFurnaceActive.setLightLevel(0.875F),
-                shulkerFurnaceIdle,
-                shulkerFurnaceActive.setLightLevel(0.875F));
+                obsidianFurnaceActive.setLightLevel(0.875F));
+                //shulkerFurnaceIdle,
+                //shulkerFurnaceActive.setLightLevel(0.875F));
     }
 
     public static void registerItemBlocks(IForgeRegistry<Item> registry) {
@@ -65,7 +65,7 @@ public class IFBlocks {
         glassFurnaceActive.registerItemModel(Item.getItemFromBlock(glassFurnaceActive));
         obsidianFurnaceIdle.registerItemModel(Item.getItemFromBlock(obsidianFurnaceIdle));
         obsidianFurnaceActive.registerItemModel(Item.getItemFromBlock(obsidianFurnaceActive));
-        shulkerFurnaceIdle.registerItemModel(Item.getItemFromBlock(shulkerFurnaceIdle));
-        shulkerFurnaceActive.registerItemModel(Item.getItemFromBlock(shulkerFurnaceActive));
+        //shulkerFurnaceIdle.registerItemModel(Item.getItemFromBlock(shulkerFurnaceIdle));
+        //shulkerFurnaceActive.registerItemModel(Item.getItemFromBlock(shulkerFurnaceActive));
     }
 }

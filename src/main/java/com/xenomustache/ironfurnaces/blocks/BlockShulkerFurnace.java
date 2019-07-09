@@ -422,10 +422,10 @@ public class BlockShulkerFurnace extends BlockContainer {
         return itemstack;
     }
 
-    public static Block getBlockByColor(EnumDyeColor colorIn)
-    {
-        switch (colorIn)
-        {
+    // public static Block getBlockByColor(EnumDyeColor colorIn)
+    // {
+    //     switch (colorIn)
+    //     {
             //case WHITE:
             //    return Blocks.WHITE_SHULKER_BOX;
             //case ORANGE:
@@ -459,13 +459,13 @@ public class BlockShulkerFurnace extends BlockContainer {
             //    return Blocks.RED_SHULKER_BOX;
             //case BLACK:
             //    return Blocks.BLACK_SHULKER_BOX;
-            default:
-                if(isBurning)
-                    return IFBlocks.shulkerFurnaceActive;
-                else
-                    return IFBlocks.shulkerFurnaceIdle;
-        }
-    }
+            // default:
+            //     if(isBurning)
+            //         return IFBlocks.shulkerFurnaceActive;
+            //     else
+            //         return IFBlocks.shulkerFurnaceIdle;
+    //     }
+    // }
 
     @SideOnly(Side.CLIENT)
     public static EnumDyeColor getColorFromItem(Item itemIn)
@@ -473,10 +473,10 @@ public class BlockShulkerFurnace extends BlockContainer {
         return getColorFromBlock(Block.getBlockFromItem(itemIn));
     }
 
-    public static ItemStack getColoredItemStack(EnumDyeColor colorIn)
-    {
-        return new ItemStack(getBlockByColor(colorIn));
-    }
+    // public static ItemStack getColoredItemStack(EnumDyeColor colorIn)
+    // {
+    //     return new ItemStack(getBlockByColor(colorIn));
+    // }
 
     @SideOnly(Side.CLIENT)
     public static EnumDyeColor getColorFromBlock(Block blockIn)

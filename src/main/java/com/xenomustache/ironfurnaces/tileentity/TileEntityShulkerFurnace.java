@@ -220,13 +220,13 @@ public class TileEntityShulkerFurnace extends TileEntityLockableLoot implements 
 
                 keepInventory = true;
 
-                if (flag1) {
-                    world.setBlockState(pos, IFBlocks.shulkerFurnaceActive.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
-                    world.setBlockState(pos, IFBlocks.shulkerFurnaceActive.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
-                } else {
-                    world.setBlockState(pos, IFBlocks.shulkerFurnaceIdle.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
-                    world.setBlockState(pos, IFBlocks.shulkerFurnaceIdle.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
-                }
+                // if (flag1) {
+                //     world.setBlockState(pos, IFBlocks.shulkerFurnaceActive.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
+                //     world.setBlockState(pos, IFBlocks.shulkerFurnaceActive.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
+                // } else {
+                //     world.setBlockState(pos, IFBlocks.shulkerFurnaceIdle.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
+                //     world.setBlockState(pos, IFBlocks.shulkerFurnaceIdle.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
+                // }
 
                 keepInventory = false;
 
